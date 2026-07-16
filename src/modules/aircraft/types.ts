@@ -6,3 +6,8 @@ export interface Aircraft {
   manufacturerID: string
   totalSeats: number
 }
+export interface AircraftModel {
+  id: string
+  name: string
+  description: string
+}

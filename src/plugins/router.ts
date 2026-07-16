@@ -7,7 +7,12 @@ const router = createRouter({
     {
       path: '/aircraft',
       name: 'Aircraft',
-      component: () => import('../modules/aircraft/components/Aircraft.vue'),
+      component: () => import('../modules/aircraft/views/Aircraft.vue'),
+    },
+    {
+      path: '/aircraft-model',
+      name: 'Model',
+      component: () => import('../modules/aircraft/views/AircraftModel.vue'),
     },
     {
       path: '/Manufacturer',
@@ -17,7 +22,7 @@ const router = createRouter({
     {
       path: '/logout',
       name: 'Lougout',
-      component: () => import('../modules/aircraft/components/Aircraft.vue'),
+      component: () => import('../modules/aircraft/views/Aircraft.vue'),
     },
   ],
 })

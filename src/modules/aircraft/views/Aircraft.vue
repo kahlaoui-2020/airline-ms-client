@@ -9,7 +9,7 @@
   </v-card>
 </template>
 <script setup lang="ts">
-import AircraftTable from './AircraftTable.vue'
+import AircraftTable from '../components/AircraftTable.vue'
 import { useAircraft } from '../store/aircraft.ts'
 import { onMounted, toRefs } from 'vue'
 
