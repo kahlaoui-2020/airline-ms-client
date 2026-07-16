@@ -1,6 +1,6 @@
 <template>
   <v-form ref="formRef" v-model="valid" @submit.prevent="confirm">
-    <v-card v-model="open" :subtitle="data?.subtitle" :text="data?.text">
+    <v-card v-model="open" :subtitle="data?.subtitle" :text="data?.message">
       <v-card-title class="d-flex justify-space-between align-center">
         <span class="text-headline-samll text-medium-emphasis ps-2">
           {{ data?.title }}
@@ -53,19 +53,8 @@ import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
 
 import { inject, reactive, ref } from 'vue'
 import type { VForm } from 'vuetify/components'
+import type { Aircraft, ConfirmData } from '../types'
 
-interface ConfirmData {
-  title: string
-  subtitle: string
-  text: string
-}
-interface AircraftForm {
-  airlineID?: string
-  registrationNo?: string
-  modelID?: string
-  manufacturerID?: string
-  totalSeats?: number
-}
 const rules = {
   required: (v: unknown) => !!v,
 }
@@ -73,7 +62,7 @@ const data = inject<ConfirmData>(DIALOG_DATA)
 const dialogRef = inject<DialogRef<boolean>>(DIALOG_REF)
 const valid = ref(false)
 const formRef = ref<VForm>()
-const form = reactive<AircraftForm>({})
+const form = reactive<Partial<Aircraft>>({})
 async function confirm() {
   const isValid = (await formRef.value?.validate())?.valid
   if (!isValid) return

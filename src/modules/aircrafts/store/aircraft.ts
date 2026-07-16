@@ -21,7 +21,7 @@ export const useAircraft = defineStore('aircraft', () => {
     loading.value = true
     try {
       await aircraftService.delete(id)
-      aircrafts.value = aircrafts.value.filter((a) => a.id !== id)
+      aircrafts.value = aircrafts.value.filter((a) => a.airlineID !== id)
     } catch (error) {
       console.error(error)
     } finally {

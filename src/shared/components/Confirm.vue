@@ -7,13 +7,10 @@
   </v-card>
 </template>
 <script setup lang="ts">
+import type { ConfirmData } from '@/modules/aircrafts/types'
 import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
 import { inject } from 'vue'
 
-interface ConfirmData {
-  title: string
-  message: string
-}
 const data = inject<ConfirmData>(DIALOG_DATA)
 const dialogRef = inject<DialogRef<boolean>>(DIALOG_REF)
 function confirm() {

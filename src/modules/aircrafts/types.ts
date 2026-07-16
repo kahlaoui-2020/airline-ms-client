@@ -1,7 +1,14 @@
+export interface ConfirmData {
+  title: string
+  subtitle: string
+  message: string
+}
+
 export interface Aircraft {
   id: string
+  airlineID: string
   registrationNo: string
-  model: string
-  manufacturer: string
+  modelID: string
+  manufacturerID: string
   totalSeats: number
 }
