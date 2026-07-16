@@ -30,7 +30,7 @@ const headers = [
 const dialog = useDialog()
 async function add() {
   const dialogRef = dialog.open(ManufacturerForm, {
-    data: { title: 'Delete' },
+    data: { title: 'Create Manufacturer' },
     width: '400px',
     disableClose: false,
   })

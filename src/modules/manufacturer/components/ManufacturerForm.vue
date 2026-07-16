@@ -9,10 +9,10 @@
       </v-card-title>
       <v-divider class="mb-4" />
       <v-card-text>
-        <v-text-field v-model="form.name" label="Registration number" :rules="[rules.required]" />
+        <v-text-field v-model="form.name" label="Name" :rules="[rules.required]" />
         <v-autocomplete
           v-model="form.country"
-          label="Model"
+          label="Country"
           :items="['']"
           item-title="name"
           item-value="id"

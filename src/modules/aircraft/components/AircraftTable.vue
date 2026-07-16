@@ -30,7 +30,7 @@ const headers = [
 const dialog = useDialog()
 async function add() {
   const dialogRef = dialog.open(AircraftForm, {
-    data: { title: 'Delete' },
+    data: { title: 'Create Aircraft' },
     width: '400px',
     disableClose: false,
   })
