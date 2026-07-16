@@ -17,7 +17,7 @@
 </template>
 <script setup lang="ts">
 import { useDialog } from '@/plugins/dialog'
-import AddAircraft from './AircraftForm.vue'
+import AircraftForm from './AircraftForm.vue'
 import type { Aircraft } from '../types.ts'
 
 defineProps<{ items: Aircraft[]; loading: boolean }>()
@@ -29,7 +29,7 @@ const headers = [
 
 const dialog = useDialog()
 async function add() {
-  const dialogRef = dialog.open(AddAircraft, {
+  const dialogRef = dialog.open(AircraftForm, {
     data: { title: 'Delete' },
     width: '400px',
     disableClose: false,

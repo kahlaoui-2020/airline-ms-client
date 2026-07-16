@@ -7,9 +7,9 @@
   </v-card>
 </template>
 <script setup lang="ts">
-import type { ConfirmData } from '@/modules/aircrafts/types'
 import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
 import { inject } from 'vue'
+import type { ConfirmData } from '../types/api'
 
 const data = inject<ConfirmData>(DIALOG_DATA)
 const dialogRef = inject<DialogRef<boolean>>(DIALOG_REF)

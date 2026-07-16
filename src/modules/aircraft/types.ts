@@ -1,9 +1,3 @@
-export interface ConfirmData {
-  title: string
-  subtitle: string
-  message: string
-}
-
 export interface Aircraft {
   id: string
   airlineID: string

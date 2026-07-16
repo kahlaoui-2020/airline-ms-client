@@ -4,7 +4,7 @@ import type { Aircraft } from '../types'
 
 export class AircraftService extends BaseService<Aircraft> {
   constructor() {
-    super('/aircrafts')
+    super('/aircraft')
   }
   // aircraft specific operations
   search(query: string) {

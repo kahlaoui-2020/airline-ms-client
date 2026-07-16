@@ -53,7 +53,8 @@ import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
 
 import { inject, reactive, ref } from 'vue'
 import type { VForm } from 'vuetify/components'
-import type { Aircraft, ConfirmData } from '../types'
+import type { Aircraft } from '../types'
+import type { ConfirmData } from '@/shared/types/api'
 
 const rules = {
   required: (v: unknown) => !!v,

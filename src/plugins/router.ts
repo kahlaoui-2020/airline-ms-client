@@ -7,17 +7,17 @@ const router = createRouter({
     {
       path: '/aircrafts',
       name: 'Aircraft',
-      component: () => import('../modules/aircrafts/components/Aircraft.vue'),
+      component: () => import('../modules/aircraft/components/Aircraft.vue'),
     },
     {
       path: '/settings',
       name: 'Settings',
-      component: () => import('../modules/aircrafts/components/Aircraft.vue'),
+      component: () => import('../modules/aircraft/components/Aircraft.vue'),
     },
     {
       path: '/logout',
       name: 'Lougout',
-      component: () => import('../modules/aircrafts/components/Aircraft.vue'),
+      component: () => import('../modules/aircraft/components/Aircraft.vue'),
     },
   ],
 })
