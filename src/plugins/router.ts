@@ -3,16 +3,16 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '', redirect: '/aircrafts' },
+    { path: '', redirect: '/aircraft' },
     {
-      path: '/aircrafts',
+      path: '/aircraft',
       name: 'Aircraft',
       component: () => import('../modules/aircraft/components/Aircraft.vue'),
     },
     {
-      path: '/settings',
-      name: 'Settings',
-      component: () => import('../modules/aircraft/components/Aircraft.vue'),
+      path: '/Manufacturer',
+      name: 'Manufacturer',
+      component: () => import('../modules/manufacturer/components/Manufacturer.vue'),
     },
     {
       path: '/logout',
