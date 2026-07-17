@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import aircraftService from '../api/aricraft.service'
+import aircraftService from '../api/aircraft.service'
 import type { Aircraft } from '../types'
 
 export const useAircraft = defineStore('aircraft', () => {
