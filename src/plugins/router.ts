@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import('../modules/aircraft/views/AircraftModel.vue'),
     },
     {
-      path: '/Manufacturer',
+      path: '/manufacturer',
       name: 'Manufacturer',
       component: () => import('../modules/manufacturer/components/Manufacturer.vue'),
     },
