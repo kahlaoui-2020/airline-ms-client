@@ -20,6 +20,12 @@ const router = createRouter({
       component: () => import('../modules/manufacturer/components/Manufacturer.vue'),
     },
     {
+      path: '/airport',
+      name: 'Aiport',
+      component: () => import('../modules/airport/views/Airport.vue'),
+    },
+
+    {
       path: '/logout',
       name: 'Lougout',
       component: () => import('../modules/aircraft/views/Aircraft.vue'),
