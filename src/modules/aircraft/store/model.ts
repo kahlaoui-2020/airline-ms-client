@@ -11,7 +11,7 @@ export const useAircraftModel = defineStore('aircraftModel', () => {
     loading.value = true
     try {
       const response = await modelService.findAll()
-      models.value = response.data
+      models.value = response.data ?? []
     } catch (error) {
       console.error(error)
     } finally {

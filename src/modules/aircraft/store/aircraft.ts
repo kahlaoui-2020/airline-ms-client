@@ -10,7 +10,7 @@ export const useAircraft = defineStore('aircraft', () => {
     loading.value = true
     try {
       const response = await aircraftService.findAll()
-      aircrafts.value = response.data
+      aircrafts.value = response.data ?? []
     } catch (error) {
       console.error(error)
     } finally {

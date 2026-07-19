@@ -10,7 +10,7 @@ export const useManufacturer = defineStore('manufacturer', () => {
     loading.value = true
     try {
       const response = await manufacturerService.findAll()
-      manufacturers.value = response.data
+      manufacturers.value = response.data ?? []
     } catch (error) {
       console.error(error)
     } finally {
