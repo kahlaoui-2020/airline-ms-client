@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
+import { getErrorMessage } from '@/shared/api/api-error'
 import modelService from '../api/model.service'
 import type { AircraftModel } from '../types'
 
 export const useAircraftModel = defineStore('aircraftModel', () => {
   const models = ref<AircraftModel[]>([])
   const loading = ref(false)
+  const errorMessage = ref<string | null>(null)
   async function loadModels() {
     loading.value = true
     try {
@@ -20,11 +22,14 @@ export const useAircraftModel = defineStore('aircraftModel', () => {
   }
   async function createModel(data: Partial<AircraftModel>) {
     loading.value = true
+    errorMessage.value = null
     try {
       const response = await modelService.create(data)
       models.value.push(response.data)
+      return response.data
     } catch (error) {
-      console.error(error)
+      errorMessage.value = getErrorMessage(error)
+      return null
     } finally {
       loading.value = false
     }
@@ -43,6 +48,7 @@ export const useAircraftModel = defineStore('aircraftModel', () => {
   return {
     models,
     loading,
+    errorMessage,
     loadModels,
     createModel,
     removeModel,

@@ -9,6 +9,9 @@
       </v-card-title>
       <v-divider class="mb-4" />
       <v-card-text>
+        <v-alert v-if="st.errorMessage" type="error" variant="tonal" class="mb-4">
+          {{ st.errorMessage }}
+        </v-alert>
         <v-text-field v-model="form.name" label="Name" :rules="[rules.required]" />
         <v-text-field v-model="form.description" label="Description" />
       </v-card-text>
@@ -41,8 +44,10 @@ const st = useAircraftModel()
 async function confirm() {
   const isValid = (await formRef.value?.validate())?.valid
   if (!isValid) return
-  await st.createModel(form)
-  dialogRef?.close({ a: 'yes', b: 'no' })
+  const created = await st.createModel(form)
+  if (created) {
+    dialogRef?.close(true)
+  }
 }
 function reset() {
   formRef.value?.reset()

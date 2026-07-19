@@ -9,6 +9,9 @@
       </v-card-title>
       <v-divider class="mb-4" />
       <v-card-text>
+        <v-alert v-if="errorMessage" type="error" variant="tonal" class="mb-4">
+          {{ errorMessage }}
+        </v-alert>
         <v-autocomplete
           v-model="form.iataCode"
           label="IATA Code"
@@ -48,6 +51,8 @@ import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
 
 import { inject, reactive, ref } from 'vue'
 import type { VForm } from 'vuetify/components'
+import { getErrorMessage } from '@/shared/api/api-error'
+import airportService from '../api/airport.service'
 import type { Airport } from '../types'
 import type { ConfirmData } from '@/shared/types/api'
 
@@ -59,10 +64,18 @@ const dialogRef = inject<DialogRef<boolean>>(DIALOG_REF)
 const valid = ref(false)
 const formRef = ref<VForm>()
 const form = reactive<Partial<Airport>>({})
+const errorMessage = ref<string | null>(null)
 async function confirm() {
   const isValid = (await formRef.value?.validate())?.valid
   if (!isValid) return
-  dialogRef?.close({ a: 'yes', b: 'no' })
+
+  errorMessage.value = null
+  try {
+    await airportService.create(form)
+    dialogRef?.close(true)
+  } catch (error) {
+    errorMessage.value = getErrorMessage(error)
+  }
 }
 function reset() {
   formRef.value?.reset()
