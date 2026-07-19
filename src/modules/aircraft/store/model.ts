@@ -18,6 +18,17 @@ export const useAircraftModel = defineStore('aircraftModel', () => {
       loading.value = false
     }
   }
+  async function createModel(data: Partial<AircraftModel>) {
+    loading.value = true
+    try {
+      const response = await modelService.create(data)
+      models.value.push(response.data)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      loading.value = false
+    }
+  }
   async function removeModel(id: string) {
     loading.value = true
     try {
@@ -33,6 +44,7 @@ export const useAircraftModel = defineStore('aircraftModel', () => {
     models,
     loading,
     loadModels,
+    createModel,
     removeModel,
   }
 })

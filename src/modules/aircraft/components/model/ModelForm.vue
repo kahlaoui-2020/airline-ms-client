@@ -27,6 +27,7 @@ import { inject, reactive, ref } from 'vue'
 import type { VForm } from 'vuetify/components'
 import type { ConfirmData } from '@/shared/types/api'
 import type { AircraftModel } from '../../types'
+import { useAircraftModel } from '../../store/model'
 
 const rules = {
   required: (v: unknown) => !!v,
@@ -36,9 +37,11 @@ const dialogRef = inject<DialogRef<boolean>>(DIALOG_REF)
 const valid = ref(false)
 const formRef = ref<VForm>()
 const form = reactive<Partial<AircraftModel>>({})
+const st = useAircraftModel()
 async function confirm() {
   const isValid = (await formRef.value?.validate())?.valid
   if (!isValid) return
+  await st.createModel(form)
   dialogRef?.close({ a: 'yes', b: 'no' })
 }
 function reset() {

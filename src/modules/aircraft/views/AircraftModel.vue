@@ -15,7 +15,7 @@ import { useAircraftModel } from '../store/model.ts'
 
 const store = useAircraftModel()
 const { models, loading } = toRefs(store)
-onMounted(() => {
-  store.loadModels()
+onMounted(async () => {
+  await store.loadModels()
 })
 </script>

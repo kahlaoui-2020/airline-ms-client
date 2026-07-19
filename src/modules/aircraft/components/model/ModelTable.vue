@@ -14,12 +14,16 @@ import { useDialog } from '@/plugins/dialog'
 import type { AircraftModel } from '../../types'
 import ModelForm from './ModelForm.vue'
 
-defineProps<{ items: AircraftModel[]; loading: boolean }>()
+const p = defineProps<{
+  items: AircraftModel[]
+  loading: boolean
+}>()
 const headers = [
   { title: 'ID', value: 'id' },
   { title: 'Name', value: 'name' },
   { title: 'Description', value: 'description' },
 ]
+console.log(p.items)
 
 const dialog = useDialog()
 async function add() {
