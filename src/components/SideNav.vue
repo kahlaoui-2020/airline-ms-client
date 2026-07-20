@@ -6,6 +6,7 @@
       <v-list-item to="/aircraft-model" prepend-icon="mdi-list-box" title="Aircrafts models" />
       <v-list-item to="/manufacturer" prepend-icon="mdi-factory" title="Manufacturers" />
       <v-list-item to="/airport" prepend-icon="mdi-airport" title="Airports" />
+      <v-list-item to="/airline" prepend-icon="mdi-airport" title="Airlines" />
       <v-divider />
       <v-list-item to="/logout" prepend-icon="mdi-logout" title="Logout" />
     </v-list>
