@@ -2,7 +2,7 @@
   <v-card :title="data?.title" :text="data?.message">
     <v-card-actions>
       <v-btn color="error" @click="cancel">Cancel</v-btn>
-      <v-btn color="primary" @click="confirm">Confirm</v-btn>
+      <v-btn color="primary" @click="confirm" variant="elevated">Confirm</v-btn>
     </v-card-actions>
   </v-card>
 </template>
