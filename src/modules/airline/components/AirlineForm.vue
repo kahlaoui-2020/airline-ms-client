@@ -12,7 +12,7 @@
         <v-alert v-if="st.error" type="error" variant="tonal" class="mb-4">
           {{ st.error }}
         </v-alert>
-        <v-autocomplete
+        <v-text-field
           v-model="form.iataCode"
           label="Airline"
           :items="['']"

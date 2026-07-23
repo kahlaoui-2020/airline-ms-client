@@ -15,7 +15,7 @@
         <v-autocomplete
           v-model="form.airlineID"
           label="Airline"
-          :items="['']"
+          :items="items"
           item-title="name"
           item-value="id"
           :rules="[rules.required]"
@@ -59,6 +59,7 @@ import type { VForm } from 'vuetify/components'
 import type { Aircraft } from '../types'
 import type { ConfirmData } from '@/shared/types/api'
 import { useAircraft } from '../store/aircraft'
+import { useAirline } from '@/modules/airline/store/airline'
 
 const rules = {
   required: (v: unknown) => !!v,
@@ -69,6 +70,7 @@ const valid = ref(false)
 const formRef = ref<VForm>()
 const form = reactive<Partial<Aircraft>>({})
 const st = useAircraft()
+const { airlines: items } = useAirline()
 async function confirm() {
   const isValid = (await formRef.value?.validate())?.valid
   if (!isValid) return
