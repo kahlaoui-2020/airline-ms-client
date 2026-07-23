@@ -47,7 +47,6 @@ import { inject, reactive } from 'vue'
 import type { Aircraft } from '../types'
 import type { ConfirmData } from '@/shared/types/api'
 import { useAircraft } from '../store/aircraft'
-import Form from '@/shared/components/Form.vue'
 
 const rules = {
   required: (v: unknown) => !!v,

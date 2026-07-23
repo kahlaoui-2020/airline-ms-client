@@ -1,11 +1,11 @@
 <template>
   <v-form ref="formRef" v-model="valid" @submit.prevent="submit">
     <v-card :subtitle="subtitle" :text="message">
-      <v-card-title class="d-flex justify-space-between align-center">
+      <v-card-title class="d-flex justify-space-between align-center" v-show="!hideTitle">
         <span class="text-headline-small text-medium-emphasis ps-2">
           {{ title }}
         </span>
-        <v-btn icon="mdi-close" variant="text" @click="close" />
+        <v-btn icon="mdi-close" variant="text" size="x-small" @click="close" />
       </v-card-title>
       <v-divider />
       <v-card-text :class="contentClass">
@@ -32,6 +32,7 @@ withDefaults(
     title?: string
     subtitle?: string
     message?: string
+    hideTitle?:boolean
     error?: string | null
     submitLabel?: string
     resetLabel?: string

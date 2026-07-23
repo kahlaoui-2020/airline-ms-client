@@ -1,10 +1,11 @@
 <template>
-  <v-card :title="data?.title" :text="data?.message">
-    <v-card-actions>
-      <v-btn color="error" @click="cancel">Cancel</v-btn>
-      <v-btn color="primary" @click="confirm" variant="elevated">Confirm</v-btn>
-    </v-card-actions>
-  </v-card>
+  <Form
+    :hideTitle="true"
+    :message="data?.message"
+    @submit="confirm"
+    @reset="cancel"
+  >
+  </Form>
 </template>
 <script setup lang="ts">
 import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
@@ -14,9 +15,10 @@ import type { ConfirmData } from '../types/api'
 const data = inject<ConfirmData>(DIALOG_DATA)
 const dialogRef = inject<DialogRef<boolean>>(DIALOG_REF)
 function confirm() {
-  dialogRef?.close({ a: 'yes', b: 'no' })
+  dialogRef?.close(true)
 }
 function cancel() {
   dialogRef?.close(false)
 }
+
 </script>
