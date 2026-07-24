@@ -19,11 +19,11 @@ export interface SnackbarQueueOptions {
   timeout?: number
   color?: string
   location: Anchor
-  variant?:Variant
+  variant?: Variant
   totalVisible?: string | number
   displayStrategy?: 'hold' | 'overflow'
-  timer?:boolean|'top'|'bottom'
-  transition?:string
+  timer?: boolean | 'top' | 'bottom'
+  transition?: string
   [key: string]: any
 }
 

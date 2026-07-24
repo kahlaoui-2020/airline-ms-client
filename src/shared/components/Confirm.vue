@@ -1,11 +1,5 @@
 <template>
-  <Form
-    :hideTitle="true"
-    :message="data?.message"
-    @submit="confirm"
-    @reset="cancel"
-  >
-  </Form>
+  <Form :hideTitle="true" :message="data?.message" @submit="confirm" @reset="cancel"> </Form>
 </template>
 <script setup lang="ts">
 import { DIALOG_DATA, DIALOG_REF, type DialogRef } from '@/plugins/dialog'
@@ -20,5 +14,4 @@ function confirm() {
 function cancel() {
   dialogRef?.close(false)
 }
-
 </script>

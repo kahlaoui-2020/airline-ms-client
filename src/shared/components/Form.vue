@@ -32,7 +32,7 @@ withDefaults(
     title?: string
     subtitle?: string
     message?: string
-    hideTitle?:boolean
+    hideTitle?: boolean
     error?: string | null
     submitLabel?: string
     resetLabel?: string
