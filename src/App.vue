@@ -8,6 +8,15 @@
       </v-container>
     </v-main>
   </v-app>
+  <SnackbarHost
+    :options="{
+      location: 'top right',
+      timeout: 3000,
+      totalVisible: 10,
+      transition: 'slide-y-transition',
+      variant: 'tonal',
+    }"
+  />
   <DialogHost />
 </template>
 
@@ -16,7 +25,7 @@ import { ref } from 'vue'
 import AppBar from './components/AppBar.vue'
 import SideNav from './components/SideNav.vue'
 import DialogHost from './plugins/dialog/DialogHost.vue'
-
+import SnackbarHost from './plugins/snackbar/SnackbarHost.vue'
 const drawer = ref(false)
 </script>
 
